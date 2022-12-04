@@ -4,21 +4,9 @@ option java_multiple_files = true;
 
 service accounts {
   rpc create(Empty) returns (AccountCreationResponse);
-}
-
-service deposits {
   rpc makeDeposit(DepositRequest) returns (DepositResponse);
-}
-
-service withdrawals {
   rpc makeWithdraw(WithdrawRequest) returns (WithdrawResponse);
-}
-
-service balances {
   rpc balance(BalanceRequest) returns (BalanceResponse);
-}
-
-service operations {
   rpc getOperations(OperationsRequest) returns (stream OperationsResponse);
 }
 
