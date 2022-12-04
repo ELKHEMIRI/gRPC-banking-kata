@@ -17,7 +17,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.4.0)",
-    comments = "Source: schema.proto")
+    comments = "Source: accounts.proto")
 public final class accountsGrpc {
 
   private accountsGrpc() {}
@@ -36,6 +36,54 @@ public final class accountsGrpc {
               Empty.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               AccountCreationResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<DepositRequest,
+      DepositResponse> METHOD_MAKE_DEPOSIT =
+      io.grpc.MethodDescriptor.<DepositRequest, DepositResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "accounts", "makeDeposit"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              DepositRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              DepositResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<WithdrawRequest,
+      WithdrawResponse> METHOD_MAKE_WITHDRAW =
+      io.grpc.MethodDescriptor.<WithdrawRequest, WithdrawResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "accounts", "makeWithdraw"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              WithdrawRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              WithdrawResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<BalanceRequest,
+      BalanceResponse> METHOD_BALANCE =
+      io.grpc.MethodDescriptor.<BalanceRequest, BalanceResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "accounts", "balance"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              BalanceRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              BalanceResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<OperationsRequest,
+      OperationsResponse> METHOD_GET_OPERATIONS =
+      io.grpc.MethodDescriptor.<OperationsRequest, OperationsResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+          .setFullMethodName(generateFullMethodName(
+              "accounts", "getOperations"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              OperationsRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              OperationsResponse.getDefaultInstance()))
           .build();
 
   /**
@@ -72,6 +120,34 @@ public final class accountsGrpc {
       asyncUnimplementedUnaryCall(METHOD_CREATE, responseObserver);
     }
 
+    /**
+     */
+    public void makeDeposit(DepositRequest request,
+        io.grpc.stub.StreamObserver<DepositResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_MAKE_DEPOSIT, responseObserver);
+    }
+
+    /**
+     */
+    public void makeWithdraw(WithdrawRequest request,
+        io.grpc.stub.StreamObserver<WithdrawResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_MAKE_WITHDRAW, responseObserver);
+    }
+
+    /**
+     */
+    public void balance(BalanceRequest request,
+        io.grpc.stub.StreamObserver<BalanceResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_BALANCE, responseObserver);
+    }
+
+    /**
+     */
+    public void getOperations(OperationsRequest request,
+        io.grpc.stub.StreamObserver<OperationsResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_OPERATIONS, responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -81,6 +157,34 @@ public final class accountsGrpc {
                 Empty,
                 AccountCreationResponse>(
                   this, METHODID_CREATE)))
+          .addMethod(
+            METHOD_MAKE_DEPOSIT,
+            asyncUnaryCall(
+              new MethodHandlers<
+                DepositRequest,
+                DepositResponse>(
+                  this, METHODID_MAKE_DEPOSIT)))
+          .addMethod(
+            METHOD_MAKE_WITHDRAW,
+            asyncUnaryCall(
+              new MethodHandlers<
+                WithdrawRequest,
+                WithdrawResponse>(
+                  this, METHODID_MAKE_WITHDRAW)))
+          .addMethod(
+            METHOD_BALANCE,
+            asyncUnaryCall(
+              new MethodHandlers<
+                BalanceRequest,
+                BalanceResponse>(
+                  this, METHODID_BALANCE)))
+          .addMethod(
+            METHOD_GET_OPERATIONS,
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                OperationsRequest,
+                OperationsResponse>(
+                  this, METHODID_GET_OPERATIONS)))
           .build();
     }
   }
@@ -110,6 +214,38 @@ public final class accountsGrpc {
       asyncUnaryCall(
           getChannel().newCall(METHOD_CREATE, getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void makeDeposit(DepositRequest request,
+        io.grpc.stub.StreamObserver<DepositResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_MAKE_DEPOSIT, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void makeWithdraw(WithdrawRequest request,
+        io.grpc.stub.StreamObserver<WithdrawResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_MAKE_WITHDRAW, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void balance(BalanceRequest request,
+        io.grpc.stub.StreamObserver<BalanceResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_BALANCE, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getOperations(OperationsRequest request,
+        io.grpc.stub.StreamObserver<OperationsResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(METHOD_GET_OPERATIONS, getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -135,6 +271,35 @@ public final class accountsGrpc {
     public AccountCreationResponse create(Empty request) {
       return blockingUnaryCall(
           getChannel(), METHOD_CREATE, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public DepositResponse makeDeposit(DepositRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_MAKE_DEPOSIT, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public WithdrawResponse makeWithdraw(WithdrawRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_MAKE_WITHDRAW, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public BalanceResponse balance(BalanceRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_BALANCE, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<OperationsResponse> getOperations(
+        OperationsRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), METHOD_GET_OPERATIONS, getCallOptions(), request);
     }
   }
 
@@ -163,9 +328,37 @@ public final class accountsGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_CREATE, getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<DepositResponse> makeDeposit(
+        DepositRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_MAKE_DEPOSIT, getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<WithdrawResponse> makeWithdraw(
+        WithdrawRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_MAKE_WITHDRAW, getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<BalanceResponse> balance(
+        BalanceRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_BALANCE, getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE = 0;
+  private static final int METHODID_MAKE_DEPOSIT = 1;
+  private static final int METHODID_MAKE_WITHDRAW = 2;
+  private static final int METHODID_BALANCE = 3;
+  private static final int METHODID_GET_OPERATIONS = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -188,6 +381,22 @@ public final class accountsGrpc {
           serviceImpl.create((Empty) request,
               (io.grpc.stub.StreamObserver<AccountCreationResponse>) responseObserver);
           break;
+        case METHODID_MAKE_DEPOSIT:
+          serviceImpl.makeDeposit((DepositRequest) request,
+              (io.grpc.stub.StreamObserver<DepositResponse>) responseObserver);
+          break;
+        case METHODID_MAKE_WITHDRAW:
+          serviceImpl.makeWithdraw((WithdrawRequest) request,
+              (io.grpc.stub.StreamObserver<WithdrawResponse>) responseObserver);
+          break;
+        case METHODID_BALANCE:
+          serviceImpl.balance((BalanceRequest) request,
+              (io.grpc.stub.StreamObserver<BalanceResponse>) responseObserver);
+          break;
+        case METHODID_GET_OPERATIONS:
+          serviceImpl.getOperations((OperationsRequest) request,
+              (io.grpc.stub.StreamObserver<OperationsResponse>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -207,7 +416,7 @@ public final class accountsGrpc {
   private static final class accountsDescriptorSupplier implements io.grpc.protobuf.ProtoFileDescriptorSupplier {
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return Schema.getDescriptor();
+      return Accounts.getDescriptor();
     }
   }
 
@@ -222,6 +431,10 @@ public final class accountsGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new accountsDescriptorSupplier())
               .addMethod(METHOD_CREATE)
+              .addMethod(METHOD_MAKE_DEPOSIT)
+              .addMethod(METHOD_MAKE_WITHDRAW)
+              .addMethod(METHOD_BALANCE)
+              .addMethod(METHOD_GET_OPERATIONS)
               .build();
         }
       }

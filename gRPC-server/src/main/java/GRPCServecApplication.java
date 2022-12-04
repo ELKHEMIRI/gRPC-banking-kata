@@ -21,18 +21,14 @@ public class GRPCServecApplication {
     public static void main(String[] args) throws IOException, InterruptedException {
         OperationsSPI operationsSPI = new InMemoryOperationAdapter();
         AccountsSPI accountsSPI = new InMemoryAccountsAdapter();
-        OperationsAPI operationsAPI = new Operations(operationsSPI);
         AccountsAPI accountsAPI = new Accounts(accountsSPI);
+        OperationsAPI operationsAPI = new Operations(operationsSPI);
         BalancesAPI balancesAPI = new Balances(operationsAPI);
         DepositsAPI depositsAPI = new Deposits(operationsAPI);
         WithdrawalsAPI withdrawalsAPI = new Withdrawals(operationsAPI);
 
             Server grpcServer = ServerBuilder.forPort(9090)
-                .addService(new AccountsService(accountsAPI))
-                .addService(new DepositsService(depositsAPI))
-                .addService(new WithdrawalsService(withdrawalsAPI))
-                .addService(new BalancesService(balancesAPI))
-                .addService(new OperationsService(operationsAPI))
+                .addService(new AccountsService(accountsAPI, operationsAPI, balancesAPI, depositsAPI, withdrawalsAPI))
                 .build();
         grpcServer.start();
         grpcServer.awaitTermination();

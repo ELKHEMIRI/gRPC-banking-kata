@@ -49,3 +49,7 @@ fabric.properties
 
 # *.iml
 # modules.xml
+
+*/*.class
+
+proto/target/*

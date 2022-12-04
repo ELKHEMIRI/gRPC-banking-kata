@@ -10,12 +10,13 @@ service accounts {
   rpc getOperations(OperationsRequest) returns (stream OperationsResponse);
 }
 
+message Empty {}
+
 message AccountCreationResponse {
   string accountId = 1;
   string responseMessage = 2;
   int32 responseCode = 3;
 }
-message Empty {}
 
 message DepositRequest {
   string accountId = 1;
